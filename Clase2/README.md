@@ -14,6 +14,8 @@
 
 ## :books: Clase 2
 
+<div id='content'/>
+	
 ## :clipboard: Contenido:
 
 1.  [Ejemplo SOLID](#id1)  
@@ -23,7 +25,7 @@
 
 <div id='id1'/>
 	
-## :pushpin: Ejemplo SOLID 
+## :pushpin: Ejemplo SOLID  [:arrow_up:](#content)
 
 > SOLID es un acrónimo de cinco principios de diseño orientado a objetos: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation y Dependency Inversion, promoviendo código mantenible y escalable.
 
@@ -383,7 +385,7 @@ public class d {
 
 <div id='id2'/>
 	
-## :pushpin: Ejemplo Patrón de diseño SINGLETON
+## :pushpin: Ejemplo Patrón de diseño SINGLETON [:arrow_up:](#content)
 
 > El patrón Singleton garantiza que una clase tenga una única instancia en toda la aplicación y proporciona un punto global de acceso a ella. Controla su propia creación, evitando múltiples instancias, lo que es útil para recursos compartidos como configuraciones, conexiones o logs, asegurando consistencia y un uso eficiente de memoria.
 
