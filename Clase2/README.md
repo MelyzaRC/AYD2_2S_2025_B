@@ -12,9 +12,20 @@
 >
 >Sección B
 
-# :books: Clase 2
+## :books: Clase 2
 
-# :pushpin: Ejemplo SOLID 
+## :clipboard: Contenido:
+
+1.  [Ejemplo SOLID](#id1)  
+2. [Ejemplo SINGLETON](#id2)  
+
+
+
+<div id='id1'/>
+	
+## :pushpin: Ejemplo SOLID 
+
+> SOLID es un acrónimo de cinco principios de diseño orientado a objetos: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation y Dependency Inversion, promoviendo código mantenible y escalable.
 
 <img src="https://cto.education/wp-content/uploads/2024/04/solid.png" alt="drawing" width="800" style="margin-bottom:25px">
 
@@ -98,37 +109,6 @@ public class s {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## :round_pushpin: **O – Open/Closed Principle (OCP)** 
 
 > Las entidades de software deben estar abiertas para extensión, pero cerradas para modificación. Esto implica que el comportamiento de un sistema puede ampliarse sin cambiar su código existente, generalmente usando herencia o interfaces. Con OCP, se minimizan los riesgos de introducir errores al modificar código estable y probado previamente.
@@ -210,26 +190,6 @@ public class o {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## :round_pushpin: **L – Liskov Substitution Principle (LSP)** 
 
 > Los objetos de una clase derivada deben poder sustituir a los de su clase base sin alterar el funcionamiento esperado del programa. Si una subclase rompe el contrato de la clase padre, viola LSP. Cumplirlo asegura jerarquías coherentes, facilita la reutilización y evita comportamientos inesperados en el polimorfismo.
@@ -302,26 +262,6 @@ public class l {
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## :round_pushpin: **I – Interface Segregation Principle (ISP)**
 
 > Los clientes no deben verse forzados a depender de interfaces que no usan. Es mejor tener interfaces específicas y pequeñas que una interfaz grande y general. Cumplir ISP reduce la complejidad, evita implementaciones vacías o inútiles y promueve sistemas más flexibles, fáciles de probar y con menor acoplamiento.
@@ -389,21 +329,6 @@ public class i {
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## :round_pushpin: **D – Dependency Inversion Principle (DIP)** 
 
 > Los módulos de alto nivel no deben depender de módulos de bajo nivel; ambos deben depender de abstracciones. Además, las abstracciones no deben depender de detalles, sino los detalles de las abstracciones. DIP fomenta código desacoplado, facilita cambios y pruebas unitarias, promoviendo arquitecturas robustas y fácilmente extensibles.
@@ -429,8 +354,6 @@ public class ServicioPago {
 
 ```
 
-
-
 :open_file_folder:  ```d``` :page_facing_up: ```d.java```
 
 ```
@@ -453,6 +376,73 @@ public class d {
         servicio.realizarPago(150.0);
 	}
 
+}
+
+```
+
+
+<div id='id2'/>
+	
+## :pushpin: Ejemplo Patrón de diseño SINGLETON
+
+> El patrón Singleton garantiza que una clase tenga una única instancia en toda la aplicación y proporciona un punto global de acceso a ella. Controla su propia creación, evitando múltiples instancias, lo que es útil para recursos compartidos como configuraciones, conexiones o logs, asegurando consistencia y un uso eficiente de memoria.
+
+<img src="https://refactoring.guru/images/patterns/content/singleton/singleton.png?id=108a0b9b5ea5c4426e0afa4504491d6f" alt="drawing" width="800" style="margin-bottom:25px">
+
+:open_file_folder:  ```singleton``` :page_facing_up: ```Configuracion.java```
+
+```
+package singleton;
+
+public class Configuracion {
+
+    private static Configuracion instancia;
+    private int numero; 
+
+    private Configuracion() {
+        System.out.println("Configuración inicializada");
+    }
+
+    public static Configuracion getInstancia() {
+        if (instancia == null) {
+            instancia = new Configuracion(); 
+        }
+        return instancia;
+    }
+
+    public void mostrarConfiguracion() {
+        System.out.println("Mostrando configuración...");
+    }
+    
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+}
+
+
+```
+
+
+:open_file_folder:  ```singleton``` :page_facing_up: ```singleton.java```
+
+```
+package singleton;
+
+public class singleton {
+	public static void main(String[] args) {
+		
+        Configuracion config1 = Configuracion.getInstancia();
+        config1.setNumero(1000);
+        config1.mostrarConfiguracion();
+
+        Configuracion config2 = Configuracion.getInstancia();
+        System.out.println(config2.getNumero());
+        System.out.println(config1 == config2); 
+    }
 }
 
 ```
