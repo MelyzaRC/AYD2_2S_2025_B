@@ -33,7 +33,8 @@
 
 
 ## :round_pushpin: **S – Single Responsibility Principle (SRP)**
-  
+
+***Principio de Responsabilidad Única***
 > Cada clase o módulo debe tener una única responsabilidad. Esto significa que debe estar enfocada en una sola funcionalidad, evitando mezclar tareas. Si una clase tiene múltiples motivos para cambiar, es una señal de violación del SRP. Este principio mejora la mantenibilidad, reduce el acoplamiento y facilita las pruebas unitarias.
 
 :open_file_folder:  ```s``` :page_facing_up: ```Pago.java```
@@ -112,6 +113,8 @@ public class s {
 
 
 ## :round_pushpin: **O – Open/Closed Principle (OCP)** 
+
+***Principio Abierto/Cerrado***
 
 > Las entidades de software deben estar abiertas para extensión, pero cerradas para modificación. Esto implica que el comportamiento de un sistema puede ampliarse sin cambiar su código existente, generalmente usando herencia o interfaces. Con OCP, se minimizan los riesgos de introducir errores al modificar código estable y probado previamente.
 
@@ -194,6 +197,8 @@ public class o {
 
 ## :round_pushpin: **L – Liskov Substitution Principle (LSP)** 
 
+***Principio de Sustitución de Liskov***
+
 > Los objetos de una clase derivada deben poder sustituir a los de su clase base sin alterar el funcionamiento esperado del programa. Si una subclase rompe el contrato de la clase padre, viola LSP. Cumplirlo asegura jerarquías coherentes, facilita la reutilización y evita comportamientos inesperados en el polimorfismo.
 
 :open_file_folder:  ```l``` :page_with_curl: ```ProcesadorLiskov.java```
@@ -266,6 +271,8 @@ public class l {
 
 ## :round_pushpin: **I – Interface Segregation Principle (ISP)**
 
+***Principio de Segregación de Interfaces***
+
 > Los clientes no deben verse forzados a depender de interfaces que no usan. Es mejor tener interfaces específicas y pequeñas que una interfaz grande y general. Cumplir ISP reduce la complejidad, evita implementaciones vacías o inútiles y promueve sistemas más flexibles, fáciles de probar y con menor acoplamiento.
 
 :open_file_folder:  ```i``` :page_with_curl: ```IExportable.java```
@@ -332,6 +339,8 @@ public class i {
 ```
 
 ## :round_pushpin: **D – Dependency Inversion Principle (DIP)** 
+
+***Principio de Inversión de Dependencias***
 
 > Los módulos de alto nivel no deben depender de módulos de bajo nivel; ambos deben depender de abstracciones. Además, las abstracciones no deben depender de detalles, sino los detalles de las abstracciones. DIP fomenta código desacoplado, facilita cambios y pruebas unitarias, promoviendo arquitecturas robustas y fácilmente extensibles.
 
