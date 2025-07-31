@@ -19,7 +19,8 @@
 ## :clipboard: Contenido:
 
 1.  [Ejemplo SOLID](#id1)  
-2. [Ejemplo SINGLETON](#id2)  
+2. [Ejemplo SINGLETON](#id2)
+3. [Ejemplo PROTOTYPE](#id3)  
 
 
 
@@ -457,3 +458,110 @@ public class singleton {
 }
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id='id3'/>
+
+## :pushpin: Ejemplo Patrón de diseño PROTOTYPE [:arrow_up:](#content)
+
+> El patrón Prototype es un patrón creacional que permite crear nuevos objetos copiando instancias existentes (prototipos), en lugar de instanciarlos desde cero. Se utiliza cuando la creación de objetos es costosa o compleja. Involucra un método clone() que devuelve una copia idéntica del objeto, facilitando flexibilidad y reutilización.
+
+<img src="https://tse2.mm.bing.net/th/id/OIP.pz9oETTVg5qslr1bBL0J-QHaEo?rs=1&pid=ImgDetMain&o=7&rm=3" alt="drawing" width="800" style="margin-bottom:25px">
+
+:open_file_folder:  ```prototype``` :page_facing_up: ```Documento.java```
+
+```
+package prototype;
+
+public class Documento implements Prototype {
+	private String titulo;
+	private String contenido;
+
+	public Documento(String titulo, String contenido) {
+		this.titulo = titulo;
+		this.contenido = contenido;
+	}
+
+	@Override
+	public Prototype clonar() {
+		try {
+			return (Prototype) this.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException("Error al clonar el objeto", e);
+		}
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getContenido() {
+		return contenido;
+	}
+
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
+
+	@Override
+	public String toString() {
+		return "Documento [titulo=" + titulo + ", contenido=" + contenido + "]";
+	}
+}
+```
+
+
+:open_file_folder:  ```prototype``` :page_facing_up: ```Prototype.java```
+
+```
+package prototype;
+
+interface Prototype extends Cloneable {
+    Prototype clonar();
+}
+
+
+```
+
+
+
+:open_file_folder:  ```prototype``` :page_facing_up: ```Main.java```
+
+```
+package prototype;
+
+public class Main {
+    public static void main(String[] args) {
+        Documento docOriginal = new Documento("Informe", "Contenido del informe original");
+
+        Documento docClonado = (Documento) docOriginal.clonar();
+        docClonado.setTitulo("Informe Clonado");
+
+
+        System.out.println(docOriginal); // Documento original
+        System.out.println(docClonado);  // Documento clonado
+    }
+}
+
+```
+
