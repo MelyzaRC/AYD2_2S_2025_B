@@ -18,3 +18,4 @@
 ## :books: Clase 2
 - :pushpin: [Ejemplo principios de diseño - SOLID](./Clase2/)
 - :pushpin: [Ejemplo Patrones de diseño creacionales - SINGLETON](./Clase2/)
+- - :pushpin: [Ejemplo Patrones de diseño creacionales - PROTOTYPE](./Clase2/)
