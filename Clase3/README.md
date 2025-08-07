@@ -85,7 +85,7 @@ public class LegacyAdapter implements AudioPlayer {
 }
 ```
 
-:open_file_folder:  ```adapter``` :page_facing_up: ``adapter.java```
+:open_file_folder:  ```adapter``` :page_facing_up: ```adapter.java```
 
 ```
 package adapter;
@@ -102,3 +102,116 @@ public class adapter {
 }
 
 ```
+
+
+
+
+<div id='id2'/>
+	
+## :pushpin: Ejemplo Patrón State [:arrow_up:](#content)
+
+> El patrón State es un patrón de comportamiento que permite que un objeto cambie su comportamiento cuando cambia su estado interno, como si cambiara su clase. Encapsula los estados posibles de un objeto en clases separadas y delega a estas clases el comportamiento según el estado actual. Así, se evita el uso de múltiples condicionales (if o switch) y se promueve un diseño más limpio y extensible. Es útil, por ejemplo, en máquinas de estados, ciclos de vida de objetos, o sistemas con reglas según contexto. Este patrón facilita agregar nuevos estados sin modificar el código existente, promoviendo el principio de abierto/cerrado.
+
+<img src="https://refactoring.guru/images/patterns/content/state/state-es.png?id=03f2a3a86f4b58cc21b4c8c152d6c0ec" alt="drawing" width="800" style="margin-bottom:25px">
+
+
+:open_file_folder:  ```state``` :page_facing_up: ```Estado.java```
+
+```
+package state;
+
+public interface Estado {
+	void reproducir();
+    void pausar();
+    void detener();
+}
+
+```
+
+:open_file_folder:  ```state``` :page_facing_up: ```EstadoDetenido.java```
+
+```
+package state;
+
+class EstadoDetenido implements Estado {
+    @Override
+    public void reproducir() {
+        System.out.println("Iniciando reproducción...");
+    }
+
+    @Override
+    public void pausar() {
+        System.out.println("No se puede pausar, la música está detenida.");
+    }
+
+    @Override
+    public void detener() {
+        System.out.println("La música ya está detenida.");
+    }
+}
+```
+
+:open_file_folder:  ```state``` :page_facing_up: ```EstadoPausado.java```
+
+```
+package state;
+
+class EstadoPausado implements Estado {
+    @Override
+    public void reproducir() {
+        System.out.println("Reanudando música...");
+    }
+
+    @Override
+    public void pausar() {
+        System.out.println("La música ya está pausada.");
+    }
+
+    @Override
+    public void detener() {
+        System.out.println("Música detenida desde pausa.");
+    }
+}
+```
+
+:open_file_folder:  ```state``` :page_facing_up: ```EstadoReproduciendo.java```
+
+```
+package state;
+
+class EstadoReproduciendo implements Estado {
+    @Override
+    public void reproducir() {
+        System.out.println("Ya se está reproduciendo la música.");
+    }
+
+    @Override
+    public void pausar() {
+        System.out.println("Música pausada.");
+    }
+
+    @Override
+    public void detener() {
+        System.out.println("Música detenida.");
+    }
+}
+```
+
+:open_file_folder:  ```state``` :page_facing_up: ```state.java```
+
+```
+package state;
+
+public class state {
+	public static void main(String[] args) {
+		ReproductorMusica reproductor = new ReproductorMusica();
+
+		reproductor.reproducir();
+		reproductor.pausar();
+		reproductor.reproducir();
+		reproductor.detener();
+		
+	}
+}
+```
+
