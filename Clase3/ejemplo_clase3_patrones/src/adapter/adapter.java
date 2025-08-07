@@ -6,7 +6,7 @@ public class adapter {
         moderno.play("cancion_moderno.mp3");
 
         LegacyPlayer legacy = new LegacyPlayer();
-        AudioPlayer adaptado = new LegacyAdapter(legacy);
-        adaptado.play("cancion_legacy.mp3");
+        AudioPlayer adaptador = new LegacyAdapter(legacy);
+        adaptador.play("cancion_legacy.mp3");
     }
 }
