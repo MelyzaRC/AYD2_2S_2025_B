@@ -23,3 +23,6 @@
 ## :books: Clase 3
 - :pushpin: [Ejemplo Patrones de diseño estructurales - ADAPTER](./Clase3/)
 - :pushpin: [Ejemplo Patrones de diseño de comportamiento - STATE](./Clase3/)
+
+## :books: Clase 4
+- :page_facing_up: [Casos de uso y matrices de trazabilidad](./Clase4/)
